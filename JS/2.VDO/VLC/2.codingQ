@@ -1,0 +1,68 @@
+console.log(a);
+var a = 10;
+
+👉 Output: undefined
+👉 Reason: var is hoisted with default undefined
+
+********************---------------------------------*******************************
+
+console.log(a);
+let a = 10;
+
+👉 Output: ❌ ReferenceError
+👉 Reason: TDZ
+
+********************---------------------------------*******************************
+
+console.log(a);
+const a = 10;
+
+👉 Output: ❌ ReferenceError
+👉 Reason: TDZ
+
+********************---------------------------------*******************************
+
+var a = 10;
+function test() {
+  console.log(a);
+  var a = 20;
+}
+test();
+
+👉 Output: undefined
+👉 Reason: local var a is hoisted
+
+********************---------------------------------*******************************
+
+let a = 10;
+function test() {
+  console.log(a);
+}
+function test2() {
+  let a = 20;
+  test();
+}
+test2();
+
+👉 Output: 10
+👉 Reason: lexical scope
+
+********************---------------------------------*******************************
+
+if (true) {
+  var a = 10;
+  let b = 20;
+}
+console.log(a); -> 10
+console.log(b); -> ReferenceError
+
+********************---------------------------------*******************************
+
+var a = 1;
+function foo() {
+  console.log(a); - undefined
+  var a = 2;
+}
+foo();
+
+
